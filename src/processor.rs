@@ -3,7 +3,12 @@ use midly::{EventKind, MidiMessage};
 use std::collections::HashMap;
 use midly::number::u7;
 
-pub(crate) fn process(rx: Receiver<Option<EventKind>>) {
+use crate::theory::{Note, Pitch31};
+use crate::data::{ActiveNote};
+use crate::tonal_space::TSPitch;
+
+
+pub(crate) fn process(rx: Receiver<Option<Vec<u8>>>) {
 
     // Keys contain collection of notes in tonal space,
     // and it maps to a list of notes across the different octaves it spans
@@ -12,15 +17,28 @@ pub(crate) fn process(rx: Receiver<Option<EventKind>>) {
     // just as how C4 B3 does.
     let mut tonal_space: HashMap<Note, Vec<TSPitch>> = HashMap::new();
 
-    let mut active_notes: HashMap<u7, Pitch31> = HashMap::new();
+    let mut active_notes: HashMap<u7, ActiveNote> = HashMap::new();
 
+    let mut parser_running_status = None;
 
     // Once None is sent, app will be terminated
-    while let Some(ev) = rx.recv() {
+    while let Some(mut raw) = rx.recv().unwrap() {
+        let mut raw = raw.as_slice();
+        let parsed_msg = EventKind::parse(&mut raw, &mut parser_running_status);
+        let ev;
+        match parsed_msg {
+            Ok(event) => {
+                ev = event;
+            }
+            Err(e) => {
+                println!("error parsing midi msg: {}", e);
+                continue;
+            }
+        }
         if let EventKind::Midi {channel, message} = ev {
             match message {
                 MidiMessage::NoteOn {key, vel} => {
-
+                    convert(key, vel, &tonal_space);
                 }
                 MidiMessage::NoteOff {key, vel} => {
 
@@ -34,8 +52,6 @@ pub(crate) fn process(rx: Receiver<Option<EventKind>>) {
     }
 }
 
-struct TSPitch {
-    // Abstraction for values of tonal space hashmap, for future use of assigning
-    // additional properties to each note in the tonal space
-    pitch: Pitch31
+pub fn convert(key: u7, vel: u7, tonal_space: &HashMap<Note, Vec<TSPitch>>) {
+
 }

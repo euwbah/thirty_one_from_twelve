@@ -16,12 +16,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3edc98d-c03a-4d87-a821-0bffd9039bb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/processor.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/theory.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tonal_space.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/processor.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/processor.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/theory.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/theory.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +59,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+    <property name="settings.editor.selected.configurable" value="language.rust.cargo" />
   </component>
   <component name="RunManager">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
@@ -73,6 +76,7 @@
     </configuration>
   </component>
   <component name="RustProjectSettings">
+    <option name="runExternalLinterOnTheFly" value="true" />
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
     <option name="version" value="2" />
   </component>
@@ -85,18 +89,46 @@
       <option name="presentableId" value="Default" />
       <updated>1598692851852</updated>
       <workItem from="1598692853377" duration="15534000" />
-      <workItem from="1598794856426" duration="5724000" />
+      <workItem from="1598794856426" duration="11009000" />
+      <workItem from="1598813943589" duration="1953000" />
+      <workItem from="1598862591198" duration="2598000" />
+      <workItem from="1598884139260" duration="5090000" />
+      <workItem from="1598896008405" duration="8159000" />
     </task>
+    <task id="LOCAL-00001" summary="updates">
+      <created>1598800680618</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598800680618</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1598907497459">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1598907497459" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598695881534">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1598695881534" />
+    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1598800679320">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1598800679320" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1598888182519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1598888182519" />
     <state x="613" y="310" key="Github.ShareDialog" timestamp="1598693103594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -105,13 +137,57 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="117" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1598693112971" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1598908578127">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598908578127" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1598908578127">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598908578127" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1598908578127">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598908578127" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1598908578127">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598908578127" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1598865165867">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598865165867" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1598865165867">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1598865165867" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1598865165867">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1598865165867" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1598865165867">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1598865165867" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1598804784401">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1598804784401" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1598800681996">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1598800681996" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598800657443">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1598800657443" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1598799707575">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1598862796034">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598799707575" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598862796034" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1598804508898">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598804508898" />
   </component>
 </project>

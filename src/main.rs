@@ -2,26 +2,32 @@ extern crate midir;
 extern crate midly;
 
 extern crate lazy_static;
-extern crate num_traits;
-extern crate num_derive;
 extern crate regex;
 
 mod processor;
 mod theory;
+mod data;
+mod tonal_space;
+
+use lazy_static::lazy_static;
 
 use std::io::{stdin, stdout, Write};
 use std::error::Error;
 
 use midir::{MidiInput, MidiOutput, MidiIO, Ignore};
 use std::sync::mpsc::channel;
-use midly::EventKind;
 use std::thread;
+use crate::theory::Note;
 
-fn main() {
-    match run() {
-        Ok(_) => (),
-        Err(err) => println!("Error: {}", err)
-    }
+fn main() -> Result<(), Box<dyn Error>> {
+
+    println!("{}", Note::Cx.fifths_to(Note::C));
+
+    // match run() {
+    //     Ok(_) => (),
+    //     Err(err) => println!("Error: {}", err)
+    // }
+    Ok(())
 }
 
 fn run() -> Result<(), Box<dyn Error>> {
@@ -42,20 +48,10 @@ fn run() -> Result<(), Box<dyn Error>> {
     let (tx, rx) = channel();
     let tx1 = tx.clone();
 
-    let mut parser_running_status: Option<u8> = None;
-
     // _conn_in needs to be a named parameter, because it needs to be kept alive until the end of the scope
     let _conn_in = midi_in.connect(&in_port, "midir-forward", move |stamp, mut message, _| {
 
-        let parsed_msg = EventKind::parse(&mut message, &mut parser_running_status);
-        match parsed_msg {
-            Ok(event) => {
-                tx1.send(Some(event))
-            }
-            Err(e) => {
-                println!("error parsing: {}", e);
-            }
-        }
+        tx1.send(Some(message.to_vec()));
 
         conn_out.send(message).unwrap_or_else(|_| println!("Error when forwarding message ..."));
         println!("{}: {:?} (len = {})", stamp, message, message.len());
