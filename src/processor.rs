@@ -5,7 +5,7 @@ use midly::number::u7;
 
 use crate::theory::{Note, Pitch31};
 use crate::data::{ActiveNote};
-use crate::tonal_space::TSPitch;
+use crate::tonal_space::{TSPitch, TonalSpace};
 
 
 pub(crate) fn process(rx: Receiver<Option<Vec<u8>>>) {
@@ -15,7 +15,7 @@ pub(crate) fn process(rx: Receiver<Option<Vec<u8>>>) {
     // TODO: Determine if the semitone interval for tonal space should
     // be octave-dependant or not. (E.g. whether C4 B4 would clear C4 from the tonal space
     // just as how C4 B3 does.
-    let mut tonal_space: HashMap<Note, Vec<TSPitch>> = HashMap::new();
+    let mut tonal_space = TonalSpace::new();
 
     let mut active_notes: HashMap<u7, ActiveNote> = HashMap::new();
 
@@ -38,7 +38,7 @@ pub(crate) fn process(rx: Receiver<Option<Vec<u8>>>) {
         if let EventKind::Midi {channel, message} = ev {
             match message {
                 MidiMessage::NoteOn {key, vel} => {
-                    convert(key, vel, &tonal_space);
+                    convert_to_31(key, vel, &mut tonal_space);
                 }
                 MidiMessage::NoteOff {key, vel} => {
 
@@ -52,6 +52,10 @@ pub(crate) fn process(rx: Receiver<Option<Vec<u8>>>) {
     }
 }
 
-pub fn convert(key: u7, vel: u7, tonal_space: &HashMap<Note, Vec<TSPitch>>) {
+pub fn convert_to_31(key: u7, vel: u7, tonal_space: &mut TonalSpace) {
+
+}
+
+struct ControlInterface {
 
 }

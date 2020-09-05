@@ -1,6 +1,7 @@
 use regex::Regex;
 use lazy_static::lazy_static;
 use std::str::FromStr;
+use std::ops::{Add, RemAssign};
 
 macro_rules! patent_val {
     ($edo:expr=>edo, [$($harm:expr),+]) => {
@@ -17,7 +18,7 @@ lazy_static! {
     static ref PATENT_VAL31: Vec<f64> = patent_val!(31=>edo, [2, 3, 5, 7, 11, 13, 17]);
 }
 
-#[derive(Copy, Clone, Eq, PartialEq)]
+#[derive(Copy, Clone, Eq, PartialEq, Hash)]
 pub struct Pitch31 {
     pub note: Note,
     pub octave: i16,
@@ -51,6 +52,25 @@ impl Pitch31 {
     }
 }
 
+impl From<i16> for Pitch31 {
+    fn from(steps_from_a4: i16) -> Self {
+        let octave = steps_from_a4.div_euclid(31) + 4;
+        let note = Note::from(steps_from_a4.rem_euclid(31));
+
+        Pitch31 {
+            note, octave
+        }
+    }
+}
+
+impl Add<i16> for Pitch31 {
+    type Output = Pitch31;
+
+    fn add(self, rhs: i16) -> Self::Output {
+        Pitch31::from(self.to_steps_from_a4() + rhs)
+    }
+}
+
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 pub enum Note {
     Abb, Ebb, Bbb,
@@ -69,12 +89,12 @@ impl Note {
         let capts = NOTE_REGEX.captures(s);
         match capts {
             Some(capts) => {
-                let note = capts.name("note").unwrap();
+                let note = capts.name("note").unwrap().as_str().to_lowercase().as_str();
                 let acc = capts.name("acc");
 
                 match acc {
                     None => {
-                        match note.as_str() {
+                        match note {
                             "A" => Ok(Note::A),
                             "B" => Ok(Note::B),
                             "C" => Ok(Note::C),
@@ -86,9 +106,9 @@ impl Note {
                         }
                     }
                     Some(acc) => {
-                        match acc.as_str() {
+                        match acc.as_str().to_lowercase().as_str() {
                             "bb" =>
-                                match note.as_str() {
+                                match note {
                                     "A" => Ok(Note::Abb),
                                     "B" => Ok(Note::Bbb),
                                     "C" => Ok(Note::AxCbb),
@@ -99,7 +119,7 @@ impl Note {
                                     _ => Err("impossible note name??".to_owned())
                                 }
                             "bv" | "bb^" =>
-                                match note.as_str() {
+                                match note {
                                     "A" => Ok(Note::Gs),
                                     "B" => Ok(Note::As),
                                     "C" => Ok(Note::B),
@@ -110,7 +130,7 @@ impl Note {
                                     _ => Err("impossible note name??".to_owned())
                                 }
                             "b" =>
-                                match note.as_str() {
+                                match note {
                                     "A" => Ok(Note::Ab),
                                     "B" => Ok(Note::Bb),
                                     "C" => Ok(Note::BuCb),
@@ -121,7 +141,7 @@ impl Note {
                                     _ => Err("impossible note name??".to_owned())
                                 }
                             "v" =>
-                                match note.as_str() {
+                                match note {
                                     "A" => Ok(Note::Gx),
                                     "B" => Ok(Note::AxCbb),
                                     "C" => Ok(Note::Bs),
@@ -132,7 +152,7 @@ impl Note {
                                     _ => Err("impossible note name??".to_owned())
                                 }
                             "^" | "#v" =>
-                                match note.as_str() {
+                                match note {
                                     "A" => Ok(Note::Bbb),
                                     "B" => Ok(Note::BuCb),
                                     "C" => Ok(Note::BxDbb),
@@ -143,7 +163,7 @@ impl Note {
                                     _ => Err("impossible note name??".to_owned())
                                 }
                             "#" =>
-                                match note.as_str() {
+                                match note {
                                     "A" => Ok(Note::As),
                                     "B" => Ok(Note::Bs),
                                     "C" => Ok(Note::Cs),
@@ -154,7 +174,7 @@ impl Note {
                                     _ => Err("impossible note name??".to_owned())
                                 }
                             "#^" | "xv" =>
-                                match note.as_str() {
+                                match note {
                                     "A" => Ok(Note::Bb),
                                     "B" => Ok(Note::C),
                                     "C" => Ok(Note::Db),
@@ -165,7 +185,7 @@ impl Note {
                                     _ => Err("impossible note name??".to_owned())
                                 }
                             "x" =>
-                                match note.as_str() {
+                                match note {
                                     "A" => Ok(Note::AxCbb),
                                     "B" => Ok(Note::BxDbb),
                                     "C" => Ok(Note::Cx),
@@ -225,6 +245,8 @@ impl Note {
 }
 
 impl From<i16> for Note {
+    /// Converts a number representing the number of steps from the note A
+    /// into the Note enum value.
     fn from(steps_from_a: i16) -> Self {
         use Note::*;
         let mut steps_from_a = steps_from_a;
@@ -242,5 +264,13 @@ impl From<i16> for Note {
             -5 => G, -4 => Abb, -3 => Gs, -2 => Ab, -1 => Gx,
             _ => panic!("Impossible state")
         }
+    }
+}
+
+impl Add<i16> for Note {
+    type Output = Note;
+
+    fn add(self, rhs: i16) -> Self::Output {
+        Note::from(self.to_steps_from_a() + rhs)
     }
 }

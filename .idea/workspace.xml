@@ -16,14 +16,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3edc98d-c03a-4d87-a821-0bffd9039bb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tonal_space.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/processor.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/processor.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/theory.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/theory.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tonal_space.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tonal_space.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,11 +51,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="language.rust.cargo" />
+    <property name="settings.editor.selected.configurable" value="configurable.stylesheets" />
   </component>
   <component name="RunManager">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
@@ -94,6 +96,10 @@
       <workItem from="1598862591198" duration="2598000" />
       <workItem from="1598884139260" duration="5090000" />
       <workItem from="1598896008405" duration="8159000" />
+      <workItem from="1598942798365" duration="202000" />
+      <workItem from="1599069844717" duration="5000000" />
+      <workItem from="1599122637824" duration="15276000" />
+      <workItem from="1599298755745" duration="9559000" />
     </task>
     <task id="LOCAL-00001" summary="updates">
       <created>1598800680618</created>
@@ -102,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598800680618</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updates">
+      <created>1598942818542</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598942818542</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,18 +126,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1598907497459">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1599144942440">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1598907497459" />
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1599144942440" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598695881534">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1598695881534" />
-    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1598800679320">
+    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1598942816774">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1598800679320" />
+    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1598942816774" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1598888182519">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -169,25 +182,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1598865165867" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1598804784401">
+    <state x="277" y="57" key="SettingsEditor" timestamp="1599143638894">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1598804784401" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1598800681996">
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1599143638894" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1598942828163">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1598800681996" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598800657443">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1598942828163" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599306480046">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1598800657443" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1599306480046" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1598862796034">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598862796034" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1598804508898">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1599127529533">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598804508898" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1599127529533" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="thirty_one_from_twelve" type="b2602c69:ProjectViewProjectNode" />
+        <item name="thirty_one_from_twelve" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
   </component>
 </project>
